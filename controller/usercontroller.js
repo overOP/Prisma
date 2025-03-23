@@ -1,34 +1,47 @@
 const prisma = require('../config/prisma');
    const usercreate = async (req, res) => {
        try {
-        
-        const { name, email, password, phone, address } = req.body;
-        const user = await prisma.user.create({
-            data: { 
-                name: name,
-                email: email,
-                password: password,
-                phone: phone,
-                address: address
-             }
-        });
-        const userData = {
-            name: user.name,
-            email: user.email,
-            phone: user.phone,
-            address: user.address
-        }
-        return res.status(201).json({
-            message: 'User created successfully',
-            data: userData
-        })
+           const { name, email, password, phone, address } = req.body;
+
+           // Validate required fields
+           if (!name || !email || !password) {
+               return res.status(400).json({
+                   message: 'Name, email and password are required',
+                   success: false
+               });
+           }
+
+           const user = await prisma.user.create({
+               data: {
+                   name,
+                   email,
+                   password, // Should hash password in production
+                   phone,
+                   address
+               }
+           });
+
+           // Don't return password in response
+           const userData = {
+               name: user.name,
+               email: user.email,
+               phone: user.phone,
+               address: user.address
+           };
+
+           return res.status(201).json({
+               message: 'User created successfully',
+               success: true,
+               data: userData
+           });
        } catch (error) {
-        return res.status(201).json({
-            message: 'User not created',
-            data: error.message
-        })
+           return res.status(500).json({
+               message: 'Error creating user',
+               success: false,
+               error: error.message
+           });
        }
-    }
+   }
  
     const userget = async (req, res) => {
         try {
