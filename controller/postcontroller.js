@@ -123,4 +123,11 @@ const postdelete = async (req, res) => {
 
 
 
-module.exports = postcreate
+module.exports = { 
+    postcreate,
+     postget,
+      postgetById,
+       postupdate,
+        postpatch,
+         postdelete 
+        }

@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+//config env
+require('dotenv').config()
 
 const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoute");
@@ -9,11 +11,9 @@ app.use(express.json());
 
 //routing main route
 app.use('/user', userRoute)
+//user/name
 app.use('/post', postRoute)
-
-// localhost:3000/user/getallusers
-// localhost:3000/post/
-
+//post/name
 
 
 app.listen(3000, () => {
