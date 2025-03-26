@@ -151,30 +151,3 @@ const prisma = require('../config/prisma');
         userpatch,
         userdelete
     }
-
-    //to create and save resource to database
-    //prisma.user.create({})
-    
-    //to update resource to database
-    //prisma.user.update({
-    //    where: { id: 1 },
-    //    data: { name: 'John Doe' }
-    //    })
-    
-    //to delete resource from database
-    //prisma.user.delete({
-    //    where: { id: 1 }
-    //    })
-    
-    //to read resource from database
-    //prisma.user.findMany({})
-    
-    //to read single resource from database
-    //prisma.user.findUnique({
-    //    where: { id: 1 }
-    //    })
-    
-    //to read single resource from database
-    //prisma.user.findUnique({
-    //    where: { id: 1 }
-    //    })

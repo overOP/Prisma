@@ -1,0 +1,52 @@
+//5 http Methods is restful api 
+
+//1. GET: Retrieve data from the server
+//2. POST: Create data on the server
+//3. PUT: Update data on the server
+//4. PATCH: Update data on the server
+//5. DELETE: Delete data from the server
+
+
+
+                                                //to create and save resource to database
+                                                //prisma.user.create({})
+                                                
+                                                //to update resource to database
+                                                //prisma.user.update({})
+                                                
+                                                //to delete resource from database
+                                                //prisma.user.delete({})
+                                                
+                                                //to get resource from database
+                                                //prisma.user.findMany({})
+                                                
+                                                //to get single resource from database
+                                                //prisma.user.findUnique({})
+
+
+    //to create and save resource to database
+    //prisma.user.create({})
+    
+    //to update resource to database
+    //prisma.user.update({
+    //    where: { id: 1 },
+    //    data: { name: 'John Doe' }
+    //    })
+    
+    //to delete resource from database
+    //prisma.user.delete({
+    //    where: { id: 1 }
+    //    })
+    
+    //to read resource from database
+    //prisma.user.findMany({})
+    
+    //to read single resource from database
+    //prisma.user.findUnique({
+    //    where: { id: 1 }
+    //    })
+    
+    //to read single resource from database
+    //prisma.user.findUnique({
+    //    where: { id: 1 }
+    //    })

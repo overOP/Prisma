@@ -6,8 +6,10 @@ require('dotenv').config()
 const userRoute = require("./routes/userRoute");
 const postRoute = require("./routes/postRoute");
 
-
+//parse json data
 app.use(express.json());
+//parse urlencoded data
+app.use(express.urlencoded({ extended: true }));
 
 //routing main route
 app.use('/user', userRoute)
