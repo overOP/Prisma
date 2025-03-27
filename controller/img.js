@@ -24,7 +24,32 @@ const Imagecreate = async (req, res) => {
         });
     }
 }
-//upload multiple images
+//for array of images
+const ImageUploads = async (req, res) => {
+    try {
+        const { title, descrption, userId } = req.body;
+        const images = req.files;
+        const imageUrls = images.map(image => image.path);
+        const post = await prisma.post.create({
+            data: { 
+                title: title, 
+                descrption: descrption, 
+                imageUrl: JSON.stringify(imageUrls), 
+                userId: parseInt(userId) ,
+             
+            }
+        });
+        return res.status(201).json({
+            message: 'Post created successfully',
+            post
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Error uploading images',
+            error: error.message
+        });
+    }
+}
 const ImageUpload = async (req, res) => {
     try {
         const { title, description, userId } = req.body;
@@ -60,4 +85,9 @@ const ImageDelete = async (req, res) => {
         });
     }
 }
-module.exports = { Imagecreate, ImageUpload, ImageDelete }
+module.exports = { 
+    Imagecreate,
+    ImageUploads, 
+    ImageUpload, 
+    ImageDelete 
+}

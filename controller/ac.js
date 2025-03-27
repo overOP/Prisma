@@ -3,14 +3,15 @@ const prisma = require("../config/prisma");
 const postac = async (req, res) => {
     try {
         const file = req.file;
-        console.log(req.id);
+        const { title, descrption } = req.body;
+        console.log(req.user);
         const fileUrl = file.path;
         const post = await prisma.post.create({
             data: { 
                 title: title, 
                 descrption: descrption, 
                 imageUrl: fileUrl, 
-                userId: parseInt(req.id)
+                userId: parseInt(req.user.id)
             }
         });
         return res.status(201).json({
