@@ -1,7 +1,8 @@
 const express = require('express')
-const { postcreate, postget, postgetById, postupdate, postpatch, postdelete } = require('../controller/postcontroller')
 const router = express.Router()
 
+//post routes
+const { postcreate, postget, postgetById, postupdate, postpatch, postdelete } = require('../controller/postcontroller')
 router.post('/', postcreate)
 router.get('/', postget)
 router.get('/:id', postgetById)

@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 
+//authCheck is used to check if the user is authenticated to access the route
 const authCheck = async (req, res, next) => {
     try {
         const token = req.headers.authorization;

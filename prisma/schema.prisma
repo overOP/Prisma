@@ -18,8 +18,8 @@ model User {
   phone    String
   address  String?
 
-  posts    Post[]
-  //posts    
+//posts 
+  posts    Post[]  
 }
 
 model Post {
@@ -27,6 +27,8 @@ model Post {
   title    String @unique
   descrption     String
   imageUrl   String
+
+  //user
   user   User @relation(fields: [userId], references: [id])
   userId Int
 }
